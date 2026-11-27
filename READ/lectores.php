@@ -2,19 +2,19 @@
 $servidor = "localhost";
 $usuario = "root";
 $contrasena = "";
-$basededatos = "guiacrud";
+$basededatos = "biblioBD6";
 $conexion = new mysqli($servidor, $usuario, $contrasena, $basededatos);
 if ($conexion->connect_error) {
 die("Conexión fallida: " . $conexion->connect_error);
 }
-$sql = "SELECT * FROM producto";
+$sql = "SELECT * FROM lector";
 $resultado = $conexion->query($sql);
 if ($resultado->num_rows > 0) {
 while ($fila = $resultado->fetch_assoc()) {
-$id = $fila['id'];
-echo $fila['id'] . " " . $fila['nombre'] . " " .
-$fila['precio'] . " " . $fila['cantidad'] . " ";
-echo "<a href='producto.php?id=$id'>Mostrar</a> ";
+$id = $fila['CI'];
+echo $fila['CI'] . " " . $fila['nombre'] . " " .
+$fila['telefono'] . " " . $fila['grado'] . " ";
+echo "<a href='lector.php?id=$id'>Mostrar</a> ";
 echo "<a href='formularioEditar.php?id=$id'>Editar</a> ";
 echo "<a href='eliminarProducto.php?id=$id' " .
 "onclick=\"return confirm('¿Eliminar este producto?');\">" .
