@@ -2,23 +2,25 @@
 $servidor = "localhost";
 $usuario = "root";
 $contrasena = "";
-$basededatos = "guiacrud";
+$basededatos = "biblioBD6";
 $conexion = new mysqli($servidor, $usuario, $contrasena, $basededatos);
 if ($conexion->connect_error) {
 die("Conexión fallida: " . $conexion->connect_error);
 }
 $nombre = $_POST['nombre'];
-$precio = $_POST['precio'];
-$cantidad = $_POST['cantidad'];
-$sql = "INSERT INTO producto (nombre, precio, cantidad) " .
-"VALUES ('$nombre', '$precio', '$cantidad')";
+$telefono = $_POST['telefono'];
+$grado = $_POST['grado'];
+$paralelo = $_POST['paralelo'];
+$nivel = $_POST['nivel'];
+$sql = "INSERT INTO lector (nombre, telefono, grado, paralelo, nivel) " .
+"VALUES ('$nombre', '$telefono', '$grado', '$paralelo', '$nivel')";
 if ($conexion->query($sql) === TRUE) {
-echo "Nuevo producto creado exitosamente";
+echo "Nuevo lector registrado exitosamente";
 } else {
 echo "Error: " . $sql . "<br>" . $conexion->error;
 }
 $conexion->close();
 ?>
 <br><br>
-<a href="formRegistroProducto.php">Registrar otro producto</a> |
-<a href="productos.php">Ver productos</a>
+<a href="formRegistroProducto.php">Registrar otro lector</a> |
+<a href="productos.php">Ver Lectores</a>
